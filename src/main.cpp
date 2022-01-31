@@ -27,7 +27,6 @@ string hasData(string s) {
 
 int main() {
   uWS::Hub h;
-
   // Set up parameters here
   double delta_t = 0.1;  // Time elapsed between measurements [sec]
   double sensor_range = 50;  // Sensor range [m]
@@ -43,7 +42,6 @@ int main() {
     std::cout << "Error: Could not open map file" << std::endl;
     return -1;
   }
-
   // Create particle filter
   ParticleFilter pf;
 
@@ -100,7 +98,7 @@ int main() {
           std::istream_iterator<float>(),
           std::back_inserter(y_sense));
 
-          for (int i = 0; i < x_sense.size(); ++i) {
+          for (int i = 0; i < (int)x_sense.size(); ++i) {
             LandmarkObs obs;
             obs.x = x_sense[i];
             obs.y = y_sense[i];
